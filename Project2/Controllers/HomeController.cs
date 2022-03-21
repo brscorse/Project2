@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Project2.Models;
 using System;
@@ -57,10 +58,12 @@ namespace Project2.Controllers
         [HttpGet]
         public IActionResult Appointments ()
         {
-            var appt = newContext.Responses.ToList();
-            //var time = newContext.times.ToList();
+            var appt = newContext.Responses
+                .Include(x => x.TimeSlot)
+                .ToList();
+            //ViewBag.times = newContext.times.ToList();
 
-            return View(appt);
+            return View();
         }
 
     }

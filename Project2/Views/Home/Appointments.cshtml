@@ -3,8 +3,13 @@
 
 @model List<Group>
 
-<div>
-    <form method="post">
-
-    </form>
-</div>
+<table>
+    @foreach (var x in Model)
+            {
+                <tr>
+                    <td>@x.GroupName</td>
+                    <td>@x.TimeSlot.Date</td>
+                </tr>
+            }
+    
+</table>
