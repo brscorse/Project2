@@ -8,15 +8,15 @@ namespace Project2.Models
 {
     public class TimeSlot
     {
+        [Key]
+        [Required]
+        public int TimeSlotId { get; set; }
         [Required]
         public DateTime Date { get; set; }
         [Required]
         public DateTime Time { get; set; }
         [Required]
         public Boolean Available { get; set; }
-        [Key]
-        [Required]
-        public long GroupId { get; set; }
 
     }
 }

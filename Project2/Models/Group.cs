@@ -10,16 +10,24 @@ namespace Project2.Models
     {
         [Key]
         [Required]
-        public long BookId { get; set; }
-        [Required]
+        public long GroupId { get; set; }
+        [Required(ErrorMessage = "Please enter the group name")]
         public string GroupName { get; set; }
-        [Required]
+
+        [Required(ErrorMessage = "Please enter the group size")]
         [Range(0, 15)]
         public string GroupSize { get; set; }
-        [Required]
+
+        [Required(ErrorMessage = "Please enter the Email address")]
         [EmailAddress]
-        public string ContactEmail { get; set; }
+        public string Email { get; set; }
+
         public string Phone { get; set; }
+
+
+        // FK relationship
+        public int TimeSlotId { get; set; }
+        public TimeSlot TimeSlot { get; set; }
 
 
 

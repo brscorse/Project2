@@ -12,10 +12,12 @@ namespace Project2.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private Context newContext { get; set; }
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, Context temp)
         {
             _logger = logger;
+            newContext = temp;
         }
 
         public IActionResult Index()
@@ -23,20 +25,43 @@ namespace Project2.Controllers
             return View();
         }
 
+        [HttpGet]
         public IActionResult Form()
         {
             return View();
         }
 
+        [HttpPost]
+        public IActionResult Form(Group gr)
+        {
+            newContext.Add(gr);
+            newContext.SaveChanges();
+
+            return View("Index");
+        }
+
+        [HttpGet]
         public IActionResult SignUp()
         {
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        [HttpPost]
+        public IActionResult SignUp(TimeSlot ts)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            newContext.Add(ts);
+            newContext.SaveChanges();
+            return View();
         }
+
+        [HttpGet]
+        public IActionResult Appointments ()
+        {
+            var appt = newContext.Responses.ToList();
+            //var time = newContext.times.ToList();
+
+            return View(appt);
+        }
+
     }
 }
