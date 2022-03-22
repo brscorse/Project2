@@ -28,16 +28,25 @@ namespace Project2.Controllers
         [HttpGet]
         public IActionResult Form()
         {
-            return View();
+            return View(new Group());
         }
 
         [HttpPost]
         public IActionResult Form(Group gr)
         {
-            newContext.Add(gr);
-            newContext.SaveChanges();
+            if (ModelState.IsValid)
+            {
+                newContext.Add(gr);
+                newContext.SaveChanges();
 
-            return View("Index");
+                return View("Index", gr);
+            }
+            else
+            {
+                //ViewBag.Categories = newContext.Categories.ToList();
+                return View(gr);
+
+            }
         }
 
         [HttpGet]
@@ -79,6 +88,25 @@ namespace Project2.Controllers
         public IActionResult Delete(Group group)
         {
             newContext.Groups.Remove(group);
+            newContext.SaveChanges();
+
+            return RedirectToAction("Appointments");
+        }
+
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            //ViewBag.times = newContext.Groups.ToList();
+
+            var appt = newContext.Groups.Single(x => x.GroupId == id);
+
+            return View("Form", appt);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Group group)
+        {
+            newContext.Update(group);
             newContext.SaveChanges();
 
             return RedirectToAction("Appointments");
