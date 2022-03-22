@@ -52,7 +52,15 @@ namespace Project2.Controllers
         [HttpGet]
         public IActionResult SignUp()
         {
-            return View();
+            var sign = newContext.Groups
+            .Include(x => x.TimeSlot)
+            .Where(x => x.TimeSlot.Available == true)
+            .OrderBy(x => x.TimeSlot.Date)
+            //.OrderBy(x => x.TimeSlot.Time)
+            .ToList();
+            
+
+            return View(sign);
         }
 
         [HttpPost]
@@ -61,6 +69,8 @@ namespace Project2.Controllers
             newContext.Add(ts);
             newContext.SaveChanges();
             return View("Form");
+
+
         }
 
         [HttpGet]

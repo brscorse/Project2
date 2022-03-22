@@ -1,6 +1,33 @@
 ﻿@{
     ViewData["Title"] = "Sign Up";
 }
+@model List<Group>
+
 <h1>@ViewData["Title"]</h1>
 
-<p>Select Yo Time</p>
+<div class="container">
+    <table class="table table-hover table-striped table-bordered">
+        <thead style="font-weight:bold">
+            <tr>
+                <td scope="col">Date</td>
+                <td scope="col">Time</td>
+
+            </tr>
+        </thead>
+
+        <tbody>
+            @*for loop to display each movie*@
+            @foreach (var x in Model)
+            {
+                <tr>
+                    <td>@x.TimeSlot.Date</td>
+                    <td>@x.TimeSlot.Time</td>
+                    
+                    <td><a class="btn btn-info" asp-controller="Home">Confirm</a></td>
+                    
+                </tr>
+
+            }
+        </tbody>
+    </table>
+</div>
