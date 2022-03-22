@@ -16,7 +16,7 @@ namespace Project2.Models
         [Required]
         public string Time { get; set; }
         [Required]
-        public Boolean Available { get; set; }
+        public bool Available { get; set; }
 
     }
 }
