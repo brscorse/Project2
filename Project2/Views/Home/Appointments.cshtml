@@ -3,13 +3,22 @@
 
 @model List<Group>
 
-<table>
-    @foreach (var x in Model)
-            {
-                <tr>
-                    <td>@x.GroupName</td>
-                    <td>@x.TimeSlot.Date</td>
-                </tr>
-            }
-    
+<table class="table table-bordered table-striped">
+    <thead class="font-weight-bold">
+        <tr>
+            <td>Group Name</td>
+            <td>Time Slot</td>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.GroupName</td>
+                <td>@x.TimeSlot.Date</td>
+            </tr>
+        }
+    </tbody>
+
 </table>

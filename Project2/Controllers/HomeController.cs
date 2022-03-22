@@ -12,12 +12,11 @@ namespace Project2.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+
         private Context newContext { get; set; }
 
-        public HomeController(ILogger<HomeController> logger, Context temp)
+        public HomeController(Context temp)
         {
-            _logger = logger;
             newContext = temp;
         }
 
@@ -56,14 +55,14 @@ namespace Project2.Controllers
         }
 
         [HttpGet]
-        public IActionResult Appointments ()
+        public IActionResult Appointments()
         {
             var appt = newContext.Groups
                 .Include(x => x.TimeSlot)
                 .ToList();
             //ViewBag.times = newContext.Times.ToList();
 
-            return View();
+            return View(appt);
         }
 
     }
