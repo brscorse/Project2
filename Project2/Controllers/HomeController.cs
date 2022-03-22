@@ -61,7 +61,7 @@ namespace Project2.Controllers
             var appt = newContext.Responses
                 .Include(x => x.TimeSlot)
                 .ToList();
-            //ViewBag.times = newContext.times.ToList();
+            //ViewBag.times = newContext.Times.ToList();
 
             return View();
         }

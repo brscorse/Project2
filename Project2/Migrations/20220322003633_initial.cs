@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Project2.Migrations
 {
@@ -13,8 +12,8 @@ namespace Project2.Migrations
                 {
                     TimeSlotId = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Date = table.Column<DateTime>(nullable: false),
-                    Time = table.Column<DateTime>(nullable: false),
+                    Date = table.Column<string>(nullable: false),
+                    Time = table.Column<string>(nullable: false),
                     Available = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
@@ -44,6 +43,16 @@ namespace Project2.Migrations
                         principalColumn: "TimeSlotId",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.InsertData(
+                table: "Times",
+                columns: new[] { "TimeSlotId", "Available", "Date", "Time" },
+                values: new object[] { 1, true, "04/01/22", "9" });
+
+            migrationBuilder.InsertData(
+                table: "Responses",
+                columns: new[] { "GroupId", "Email", "GroupName", "GroupSize", "Phone", "TimeSlotId" },
+                values: new object[] { 1L, "test@test.com", "Test Group", "10", "8011234567", 1 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Responses_TimeSlotId",

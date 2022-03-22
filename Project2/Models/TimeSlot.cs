@@ -12,9 +12,9 @@ namespace Project2.Models
         [Required]
         public int TimeSlotId { get; set; }
         [Required]
-        public DateTime Date { get; set; }
+        public string Date { get; set; }
         [Required]
-        public DateTime Time { get; set; }
+        public string Time { get; set; }
         [Required]
         public Boolean Available { get; set; }
 
