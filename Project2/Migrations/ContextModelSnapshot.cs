@@ -43,7 +43,7 @@ namespace Project2.Migrations
 
                     b.HasIndex("TimeSlotId");
 
-                    b.ToTable("Responses");
+                    b.ToTable("Groups");
 
                     b.HasData(
                         new

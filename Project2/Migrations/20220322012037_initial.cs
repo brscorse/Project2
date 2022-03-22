@@ -22,7 +22,7 @@ namespace Project2.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Responses",
+                name: "Groups",
                 columns: table => new
                 {
                     GroupId = table.Column<long>(nullable: false)
@@ -35,9 +35,9 @@ namespace Project2.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Responses", x => x.GroupId);
+                    table.PrimaryKey("PK_Groups", x => x.GroupId);
                     table.ForeignKey(
-                        name: "FK_Responses_Times_TimeSlotId",
+                        name: "FK_Groups_Times_TimeSlotId",
                         column: x => x.TimeSlotId,
                         principalTable: "Times",
                         principalColumn: "TimeSlotId",
@@ -50,20 +50,20 @@ namespace Project2.Migrations
                 values: new object[] { 1, true, "04/01/22", "9" });
 
             migrationBuilder.InsertData(
-                table: "Responses",
+                table: "Groups",
                 columns: new[] { "GroupId", "Email", "GroupName", "GroupSize", "Phone", "TimeSlotId" },
                 values: new object[] { 1L, "test@test.com", "Test Group", "10", "8011234567", 1 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Responses_TimeSlotId",
-                table: "Responses",
+                name: "IX_Groups_TimeSlotId",
+                table: "Groups",
                 column: "TimeSlotId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Responses");
+                name: "Groups");
 
             migrationBuilder.DropTable(
                 name: "Times");

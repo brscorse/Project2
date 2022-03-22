@@ -8,7 +8,7 @@ using Project2.Models;
 namespace Project2.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20220322003633_initial")]
+    [Migration("20220322012037_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -45,7 +45,7 @@ namespace Project2.Migrations
 
                     b.HasIndex("TimeSlotId");
 
-                    b.ToTable("Responses");
+                    b.ToTable("Groups");
 
                     b.HasData(
                         new
