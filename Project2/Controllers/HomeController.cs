@@ -58,7 +58,7 @@ namespace Project2.Controllers
         [HttpGet]
         public IActionResult Appointments ()
         {
-            var appt = newContext.Responses
+            var appt = newContext.Groups
                 .Include(x => x.TimeSlot)
                 .ToList();
             //ViewBag.times = newContext.Times.ToList();
