@@ -13,7 +13,7 @@ namespace Project2.Models
 
         }
 
-        public DbSet<Group> Responses { get; set; }
+        public DbSet<Group> Groups { get; set; }
         public DbSet<TimeSlot> Times { get; set; }
 
 
