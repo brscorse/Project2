@@ -29,7 +29,17 @@ namespace Project2.Models
                     Email = "test@test.com",
                     Phone = "8011234567",
                     TimeSlotId = 1
+                },
+                new Group
+                {
+                    GroupId = 2,
+                    GroupName = "Test Group",
+                    GroupSize = "10",
+                    Email = "test@test.com",
+                    Phone = "8011234567",
+                    TimeSlotId = 2
                 }
+
               );
 
             mb.Entity<TimeSlot>().HasData(
@@ -37,8 +47,15 @@ namespace Project2.Models
                 {
                     TimeSlotId = 1,
                     Date = "04/01/22",
-                    Time = "9",
+                    Time = "9 AM",
                     Available = true
+                },
+                new TimeSlot
+                {
+                TimeSlotId = 2,
+                    Date = "12/01/22",
+                    Time = "10 AM",
+                    Available = false
                 }
               );
 
