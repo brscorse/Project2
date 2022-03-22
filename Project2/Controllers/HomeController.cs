@@ -65,5 +65,23 @@ namespace Project2.Controllers
             return View(appt);
         }
 
+
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            var appt = newContext.Groups.Single(x => x.GroupId == id);
+
+            return View("DeleteConfirmation", appt);
+        }
+
+
+        [HttpPost]
+        public IActionResult Delete(Group group)
+        {
+            newContext.Groups.Remove(group);
+            newContext.SaveChanges();
+
+            return RedirectToAction("Appointments");
+        }
     }
 }

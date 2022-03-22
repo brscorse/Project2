@@ -4,11 +4,11 @@
 @model Group
 
 <h2>Confirm Deletion</h2>
-<h3>Are you Sure you want to delete?</h3>
+<h3>Are you Sure you want to delete the appointment for @Model.GroupName?</h3>
 
 <form method="post" asp-action="Delete">
 
-    <button type="submit">Delete</button>
+    <button class="btn btn-danger" type="submit">Delete</button>
     <a asp-controller="Home" asp-action="Appointments" class="btn btn-primary">Cancel</a>
 
     <input type="hidden" asp-for="GroupId" />
