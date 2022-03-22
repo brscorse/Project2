@@ -7,6 +7,10 @@
     <thead class="font-weight-bold">
         <tr>
             <td>Group Name</td>
+            <td>Group Size</td>
+            <td>Email</td>
+            <td>Phone</td>
+            <td>Date</td>
             <td>Time Slot</td>
         </tr>
     </thead>
@@ -16,7 +20,11 @@
         {
         <tr>
             <td>@x.GroupName</td>
+            <td>@x.GroupSize</td>
+            <td>@x.Email</td>
+            <td>@x.Phone</td>
             <td>@x.TimeSlot.Date</td>
+            <td>@x.TimeSlot.Time</td>
             <td><a asp-controller="Home" asp-action="Edit" asp-route-id="@x.GroupId">Edit</a></td>
             <td><a asp-controller="Home" asp-action="Delete" asp-route-id="@x.GroupId">Delete</a></td>
         </tr>
