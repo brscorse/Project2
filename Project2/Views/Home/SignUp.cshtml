@@ -1,7 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Sign Up";
 }
-@model List<Group>
+@model List<TimeSlot>
 
 <h1>@ViewData["Title"]</h1>
 
@@ -20,8 +20,8 @@
             @foreach (var x in Model)
             {
                 <tr>
-                    <td>@x.TimeSlot.Date</td>
-                    <td>@x.TimeSlot.Time</td>
+                    <td>@x.Date</td>
+                    <td>@x.Time</td>
                     
                     <td><a class="btn btn-info" asp-controller="Home">Confirm</a></td>
                     

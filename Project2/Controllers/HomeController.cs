@@ -43,7 +43,6 @@ namespace Project2.Controllers
             }
             else
             {
-                //ViewBag.Categories = newContext.Categories.ToList();
                 return View(gr);
 
             }
@@ -52,11 +51,9 @@ namespace Project2.Controllers
         [HttpGet]
         public IActionResult SignUp()
         {
-            var sign = newContext.Groups
-            .Include(x => x.TimeSlot)
-            .Where(x => x.TimeSlot.Available == true)
-            .OrderBy(x => x.TimeSlot.Date)
-            //.OrderBy(x => x.TimeSlot.Time)
+            var sign = newContext.Times
+            .Where(x => x.Available == true)
+            .OrderBy(x => x.Date)
             .ToList();
             
 
@@ -79,7 +76,6 @@ namespace Project2.Controllers
             var appt = newContext.Groups
                 .Include(x => x.TimeSlot)
                 .ToList();
-            //ViewBag.times = newContext.Times.ToList();
 
             return View(appt);
         }
