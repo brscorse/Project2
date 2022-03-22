@@ -51,7 +51,7 @@ namespace Project2.Controllers
         {
             newContext.Add(ts);
             newContext.SaveChanges();
-            return View();
+            return View("Form");
         }
 
         [HttpGet]
