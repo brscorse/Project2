@@ -1,33 +1,188 @@
 ﻿@{
+    Layout = "";
     ViewData["Title"] = "Sign Up";
 }
 @model List<TimeSlot>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>@ViewData["Title"] - Project2</title>
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+                <div class="container">
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Layton Temple Tours</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse text-right navbar-dark">
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="SignUp">Sign Up</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Appointments">Appointments</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <h4>Select Date & Time:</h4>
+        <table class="table table-hover table-striped table-bordered">
+            <tbody>
 
-<h1>@ViewData["Title"]</h1>
-
-<div class="container">
-    <table class="table table-hover table-striped table-bordered">
-        <thead style="font-weight:bold">
-            <tr>
-                <td scope="col">Date</td>
-                <td scope="col">Time</td>
-
-            </tr>
-        </thead>
-
-        <tbody>
-            @*for loop to display each movie*@
-            @foreach (var x in Model)
-            {
                 <tr>
-                    <td>@x.Date</td>
-                    <td>@x.Time</td>
-                    
-                    <td><a class="btn btn-info" asp-controller="Home">Confirm</a></td>
-                    
+                    @foreach (var z in Model.Where(y => y.Date == "04/01/22"))
+                    {
+                        var i = 1;
+                        <th scope"row">@z.Date</th>
+                        @foreach (var x in Model.Where(y => y.Date == "04/01/22"))
+                        {
+                            <td>
+                                <a>@x.Time</a>
+                                <input type="hidden" asp-for="@x.TimeSlotId" />
+                                <a class="btn btn-info" asp-controller="Home">Confirm</a>
+                            </td>
+                        }
+                        if (i == 1)
+                        {
+                            break;
+                        }
+                    }
                 </tr>
 
-            }
-        </tbody>
-    </table>
-</div>
+                <tr>
+                    @foreach (var z in Model.Where(y => y.Date == "04/02/22"))
+                    {
+                        var i = 1;
+                        <th scope"row">@z.Date</th>
+                        @foreach (var x in Model.Where(y => y.Date == "04/02/22"))
+                        {
+                            <td>
+                                <a>@x.Time</a>
+                                <input type="hidden" asp-for="@x.TimeSlotId" />
+                                <a class="btn btn-info" asp-controller="Home">Confirm</a>
+                            </td>
+                        }
+                        if (i == 1)
+                        {
+                            break;
+                        }
+                    }
+                </tr>
+
+                <tr>
+                    @foreach (var z in Model.Where(y => y.Date == "04/03/22"))
+                    {
+                        var i = 1;
+                        <th scope"row">@z.Date</th>
+                        @foreach (var x in Model.Where(y => y.Date == "04/03/22"))
+                        {
+                            <td>
+                                <a>@x.Time</a>
+                                <input type="hidden" asp-for="@x.TimeSlotId" />
+                                <a class="btn btn-info" asp-controller="Home">Confirm</a>
+                            </td>
+                        }
+                        if (i == 1)
+                        {
+                            break;
+                        }
+                    }
+                </tr>
+
+                <tr>
+                    @foreach (var z in Model.Where(y => y.Date == "04/04/22"))
+                    {
+                        var i = 1;
+                        <th scope"row">@z.Date</th>
+                        @foreach (var x in Model.Where(y => y.Date == "04/04/22"))
+                        {
+
+                            <td>
+                                <a>@x.Time</a>
+                                <input type="hidden" asp-for="@x.TimeSlotId" />
+                                <a class="btn btn-info" asp-controller="Home">Confirm</a>
+                            </td>
+                        }
+                        if (i == 1)
+                        {
+                            break;
+                        }
+                    }
+                </tr>
+
+                <tr>
+                    @foreach (var z in Model.Where(y => y.Date == "04/05/22"))
+                    {
+                        var i = 1;
+                        <th scope"row">@z.Date</th>
+                        @foreach (var x in Model.Where(y => y.Date == "04/05/22"))
+                        {
+                            <td>
+                                <a>@x.Time</a>
+                                <input type="hidden" asp-for="@x.TimeSlotId" />
+                                <a class="btn btn-info" asp-controller="Home">Confirm</a>
+                            </td>
+                        }
+                        if (i == 1)
+                        {
+                            break;
+                        }
+                    }
+                </tr>
+
+                <tr>
+                    @foreach (var z in Model.Where(y => y.Date == "04/06/22"))
+                    {
+                        var i = 1;
+                        <th scope"row">@z.Date</th>
+                        @foreach (var x in Model.Where(y => y.Date == "04/06/22"))
+                        {
+                            <td>
+                                <a>@x.Time</a>
+                                <input type="hidden" asp-for="@x.TimeSlotId" />
+                                <a class="btn btn-info" asp-controller="Home">Confirm</a>
+                            </td>
+                        }
+                        if (i == 1)
+                        {
+                            break;
+                        }
+                    }
+                </tr>
+
+                <tr>
+                    @foreach (var z in Model.Where(y => y.Date == "04/07/22"))
+                    {
+                        var i = 1;
+                        <th scope"row">@z.Date</th>
+                        @foreach (var x in Model.Where(y => y.Date == "04/07/22"))
+                        {
+                            <td>
+                                <a>@x.Time</a>
+                                <input type="hidden" asp-for="@x.TimeSlotId" />
+                                <a class="btn btn-info" asp-controller="Home">Confirm</a>
+                            </td>
+                        }
+                        if (i == 1)
+                        {
+                            break;
+                        }
+                    }
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>
+
