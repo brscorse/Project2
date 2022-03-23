@@ -25,9 +25,13 @@ namespace Project2.Controllers
             return View();
         }
 
+        // this ain't working idk what to do
         [HttpGet]
-        public IActionResult Form()
+        public IActionResult Form(int id)
         {
+            
+            var appt = newContext.Groups.Single(x => x.TimeSlotId == id);
+        
             return View(new Group());
         }
 
@@ -46,6 +50,25 @@ namespace Project2.Controllers
                 return View(gr);
 
             }
+        }
+
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            //ViewBag.times = newContext.Groups.ToList();
+
+            var appt = newContext.Groups.Single(x => x.GroupId == id);
+
+            return View("Form", appt);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Group group)
+        {
+            newContext.Update(group);
+            newContext.SaveChanges();
+
+            return RedirectToAction("Appointments");
         }
 
         [HttpGet]
@@ -99,23 +122,6 @@ namespace Project2.Controllers
             return RedirectToAction("Appointments");
         }
 
-        [HttpGet]
-        public IActionResult Edit(int id)
-        {
-            //ViewBag.times = newContext.Groups.ToList();
 
-            var appt = newContext.Groups.Single(x => x.GroupId == id);
-
-            return View("Form", appt);
-        }
-
-        [HttpPost]
-        public IActionResult Edit(Group group)
-        {
-            newContext.Update(group);
-            newContext.SaveChanges();
-
-            return RedirectToAction("Appointments");
-        }
     }
 }
