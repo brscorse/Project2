@@ -25,8 +25,8 @@
             <td>@x.Phone</td>
             <td>@x.TimeSlot.Date</td>
             <td>@x.TimeSlot.Time</td>
-            <td><a asp-controller="Home" asp-action="Edit" asp-route-id="@x.GroupId">Edit</a></td>
-            <td><a asp-controller="Home" asp-action="Delete" asp-route-id="@x.GroupId">Delete</a></td>
+            <td><a asp-controller="Home" asp-action="Edit" asp-route-groupid="@x.GroupId" asp-route-timeid="@x.TimeSlotId">Edit</a></td>
+            <td><a asp-controller="Home" asp-action="Delete" asp-route-groupid="@x.GroupId" asp-route-timeid="@x.TimeSlotId">Delete</a></td>
         </tr>
         }
     </tbody>
