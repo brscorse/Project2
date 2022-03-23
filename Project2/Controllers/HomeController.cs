@@ -29,35 +29,36 @@ namespace Project2.Controllers
         [HttpGet]
         public IActionResult Form(int id)
         {
-            
-            var appt = newContext.Groups.Single(x => x.TimeSlotId == id);
+
+            ViewBag.time = id;
+            //var appt = newContext.Groups.Single(x => x.TimeSlotId == id);
         
             return View(new Group());
         }
 
         [HttpPost]
-        public IActionResult Form(Group gr)
+        public IActionResult Form(Group group)
         {
             if (ModelState.IsValid)
             {
-                newContext.Add(gr);
+                newContext.Add(group);
                 newContext.SaveChanges();
 
-                return View("Index", gr);
+                return View("Appointments", group);
             }
             else
             {
-                return View(gr);
+                return View(group);
 
             }
         }
 
         [HttpGet]
-        public IActionResult Edit(int id)
+        public IActionResult Edit(int groupid, int timeid)
         {
-            //ViewBag.times = newContext.Groups.ToList();
+            ViewBag.time = timeid;
 
-            var appt = newContext.Groups.Single(x => x.GroupId == id);
+            var appt = newContext.Groups.Single(x => x.GroupId == groupid);
 
             return View("Form", appt);
         }
