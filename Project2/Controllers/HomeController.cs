@@ -49,7 +49,7 @@ namespace Project2.Controllers
                 newContext.Add(group);
                 newContext.SaveChanges();
 
-                return View("Appointments", group);
+                return RedirectToAction("Appointments", group);
             }
             else
             {
