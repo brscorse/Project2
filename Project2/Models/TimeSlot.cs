@@ -9,13 +9,13 @@ namespace Project2.Models
     public class TimeSlot
     {
         [Key]
-        [Required]
+        [Required(ErrorMessage = "Time ID Error")]
         public int TimeSlotId { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Date isn't filled")]
         public string Date { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Time isn't filled")]
         public string Time { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Availability error")]
         public bool Available { get; set; }
 
     }

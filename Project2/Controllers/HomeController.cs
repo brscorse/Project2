@@ -25,14 +25,14 @@ namespace Project2.Controllers
             return View();
         }
 
-        // this ain't working idk what to do
         [HttpGet]
-        public IActionResult Form(int id)
+        public IActionResult Form(int timeid)
         {
 
-            ViewBag.time = id;
-            //var appt = newContext.Groups.Single(x => x.TimeSlotId == id);
-        
+            ViewBag.time = newContext.Times.Single(x => x.TimeSlotId == timeid).Time;
+            ViewBag.date = newContext.Times.Single(x => x.TimeSlotId == timeid).Date;
+            ViewBag.timeid = newContext.Times.Single(x => x.TimeSlotId == timeid).TimeSlotId;
+
             return View(new Group());
         }
 
@@ -56,7 +56,9 @@ namespace Project2.Controllers
         [HttpGet]
         public IActionResult Edit(int groupid, int timeid)
         {
-            ViewBag.time = timeid;
+            ViewBag.time = newContext.Times.Single(x => x.TimeSlotId == timeid).Time;
+            ViewBag.date = newContext.Times.Single(x => x.TimeSlotId == timeid).Date;
+            ViewBag.timeid = newContext.Times.Single(x => x.TimeSlotId == timeid).TimeSlotId;
 
             var appt = newContext.Groups.Single(x => x.GroupId == groupid);
 
@@ -106,9 +108,12 @@ namespace Project2.Controllers
 
 
         [HttpGet]
-        public IActionResult Delete(int id)
+        public IActionResult Delete(int groupid, int timeid)
         {
-            var appt = newContext.Groups.Single(x => x.GroupId == id);
+            ViewBag.time = newContext.Times.Single(x => x.TimeSlotId == timeid).Time;
+            ViewBag.date = newContext.Times.Single(x => x.TimeSlotId == timeid).Date;
+            ViewBag.timeid = newContext.Times.Single(x => x.TimeSlotId == timeid).TimeSlotId;
+            var appt = newContext.Groups.Single(x => x.GroupId == groupid);
 
             return View("DeleteConfirmation", appt);
         }
