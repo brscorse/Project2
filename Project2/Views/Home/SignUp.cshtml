@@ -8,7 +8,7 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>@ViewData["Title"] - Project2</title>
+        <title>@ViewData["Title"] - Layton Temple Tours</title>
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
         <link rel="stylesheet" href="~/css/site.css" />
     </head>
@@ -51,7 +51,7 @@
                             <td>
                                 <a>@x.Time</a>
                                 <input type="hidden" asp-for="@x.TimeSlotId" />
-                                <a class="btn btn-info" asp-controller="Home" asp-action="Form" asp-route-id="@x.TimeSlotId">Confirm</a>
+                                <a class="btn btn-info" asp-controller="Home" asp-action="Form" asp-route-timeid="@x.TimeSlotId">Confirm</a>
                             </td>
                         }
                         if (i == 1)
@@ -71,7 +71,7 @@
                             <td>
                                 <a>@x.Time</a>
                                 <input type="hidden" asp-for="@x.TimeSlotId" />
-                                <a class="btn btn-info" asp-controller="Home" asp-action="Form">Confirm</a>
+                                <a class="btn btn-info" asp-controller="Home" asp-action="Form" asp-route-timeid="@x.TimeSlotId">Confirm</a>
                             </td>
                         }
                         if (i == 1)
@@ -91,7 +91,7 @@
                             <td>
                                 <a>@x.Time</a>
                                 <input type="hidden" asp-for="@x.TimeSlotId" />
-                                <a class="btn btn-info" asp-controller="Home" asp-action="Form">Confirm</a>
+                                <a class="btn btn-info" asp-controller="Home" asp-action="Form" asp-route-timeid="@x.TimeSlotId">Confirm</a>
                             </td>
                         }
                         if (i == 1)
@@ -112,7 +112,7 @@
                             <td>
                                 <a>@x.Time</a>
                                 <input type="hidden" asp-for="@x.TimeSlotId" />
-                                <a class="btn btn-info" asp-controller="Home" asp-action="Form">Confirm</a>
+                                <a class="btn btn-info" asp-controller="Home" asp-action="Form" asp-route-timeid="@x.TimeSlotId">Confirm</a>
                             </td>
                         }
                         if (i == 1)
@@ -132,7 +132,7 @@
                             <td>
                                 <a>@x.Time</a>
                                 <input type="hidden" asp-for="@x.TimeSlotId" />
-                                <a class="btn btn-info" asp-controller="Home" asp-action="Form">Confirm</a>
+                                <a class="btn btn-info" asp-controller="Home" asp-action="Form" asp-route-timeid="@x.TimeSlotId">Confirm</a>
                             </td>
                         }
                         if (i == 1)
@@ -152,7 +152,7 @@
                             <td>
                                 <a>@x.Time</a>
                                 <input type="hidden" asp-for="@x.TimeSlotId" />
-                                <a class="btn btn-info" asp-controller="Home" asp-action="Form">Confirm</a>
+                                <a class="btn btn-info" asp-controller="Home" asp-action="Form" asp-route-timeid="@x.TimeSlotId">Confirm</a>
                             </td>
                         }
                         if (i == 1)
@@ -172,7 +172,7 @@
                             <td>
                                 <a>@x.Time</a>
                                 <input type="hidden" asp-for="@x.TimeSlotId" />
-                                <a class="btn btn-info" asp-controller="Home" asp-action="Form">Confirm</a>
+                                <a class="btn btn-info" asp-controller="Home" asp-action="Form" asp-route-timeid="@x.TimeSlotId">Confirm</a>
                             </td>
                         }
                         if (i == 1)

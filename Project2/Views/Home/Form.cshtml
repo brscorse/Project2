@@ -6,7 +6,7 @@
 
 <h1>@ViewData["Title"]</h1>
 
-<p>Please enter your details here</p>
+<p>Please enter/edit your details for your appointment on @ViewBag.date at @ViewBag.time</p>
 
 <form method="post">
 
@@ -26,7 +26,10 @@
         <input asp-for="Phone" class="form-control" />
 
         <input type="hidden" asp-for="GroupId" />
-        <input type="hidden" asp-for="TimeSlotId" value="@ViewBag.time"/>
+
+        <input type="hidden" asp-for="TimeSlotId" value="@ViewBag.timeid"/>
+
+        <input type="hidden" asp-for="TimeSlot"/>
 
     </div>
 

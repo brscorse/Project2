@@ -25,7 +25,7 @@ namespace Project2.Models
                 {
                     GroupId = 1,
                     GroupName = "Test Group",
-                    GroupSize = "10",
+                    GroupSize = 10,
                     Email = "test@test.com",
                     Phone = "8011234567",
                     TimeSlotId = 1
@@ -34,7 +34,7 @@ namespace Project2.Models
                 {
                     GroupId = 2,
                     GroupName = "Test Group",
-                    GroupSize = "10",
+                    GroupSize = 10,
                     Email = "test@test.com",
                     Phone = "8011234567",
                     TimeSlotId = 2
