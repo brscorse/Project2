@@ -37,10 +37,15 @@ namespace Project2.Controllers
         }
 
         [HttpPost]
-        public IActionResult Form(Group group)
+        public IActionResult Form(Group group, int timeid)
         {
             if (ModelState.IsValid)
             {
+
+                // change time id available to FALSE
+                newContext.Times.Single(x => x.TimeSlotId == timeid).Available = false;
+
+
                 newContext.Add(group);
                 newContext.SaveChanges();
 
@@ -49,7 +54,6 @@ namespace Project2.Controllers
             else
             {
                 return View(group);
-
             }
         }
 
@@ -120,8 +124,11 @@ namespace Project2.Controllers
 
 
         [HttpPost]
-        public IActionResult Delete(Group group)
+        public IActionResult Delete(Group group, int timeid)
         {
+            // change time id available to FALSE
+            newContext.Times.Single(x => x.TimeSlotId == timeid).Available = true;
+
             newContext.Groups.Remove(group);
             newContext.SaveChanges();
 

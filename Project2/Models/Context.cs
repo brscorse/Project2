@@ -19,28 +19,28 @@ namespace Project2.Models
 
         protected override void OnModelCreating(ModelBuilder mb)
         {
-            mb.Entity<Group>().HasData(
+            //mb.Entity<Group>().HasData(
 
-                new Group
-                {
-                    GroupId = 1,
-                    GroupName = "Test Group",
-                    GroupSize = 10,
-                    Email = "test@test.com",
-                    Phone = "8011234567",
-                    TimeSlotId = 1
-                },
-                new Group
-                {
-                    GroupId = 2,
-                    GroupName = "Test Group",
-                    GroupSize = 10,
-                    Email = "test@test.com",
-                    Phone = "8011234567",
-                    TimeSlotId = 2
-                }
+            //    new Group
+            //    {
+            //        GroupId = 1,
+            //        GroupName = "Test Group",
+            //        GroupSize = 10,
+            //        Email = "test@test.com",
+            //        Phone = "8011234567",
+            //        TimeSlotId = 1
+            //    },
+            //    new Group
+            //    {
+            //        GroupId = 2,
+            //        GroupName = "Test Group",
+            //        GroupSize = 10,
+            //        Email = "test@test.com",
+            //        Phone = "8011234567",
+            //        TimeSlotId = 2
+            //    }
 
-              );
+            //  );
 
             mb.Entity<TimeSlot>().HasData(
                 new TimeSlot

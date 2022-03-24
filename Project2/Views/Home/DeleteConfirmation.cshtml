@@ -4,14 +4,15 @@
 @model Group
 
 <h2>Confirm Deletion</h2>
-<h3>Are you Sure you want to delete the appointment for @Model.GroupName?</h3>
+<h3>Are you Sure you want to delete the appointment for @Model.GroupName? on @ViewBag.date at @ViewBag.time</h3>
 
-<form method="post" asp-action="Delete">
+<form method="post">
 
     <button class="btn btn-danger" type="submit">Delete</button>
     <a asp-controller="Home" asp-action="Appointments" class="btn btn-primary">Cancel</a>
 
     <input type="hidden" asp-for="GroupId" />
-    <input type="hidden" asp-for="TimeSlotId" />
+    <input type="hidden" asp-for="TimeSlotId" value="@ViewBag.timeid" />
+    <input type="hidden" asp-for="TimeSlot" />
 </form>
 <link href="~/css/site.css" rel="stylesheet" />
